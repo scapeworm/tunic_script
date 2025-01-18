@@ -1,0 +1,10 @@
+@font-face {
+        font-family: "Foks Standard";
+        src: url("FoksStandard-Regular.otf");
+        font-display: block;
+        font-feature-settings: "kern", "liga", "mark";
+}
+
+.tunc {
+        font-family: "Foks Standard";
+}
