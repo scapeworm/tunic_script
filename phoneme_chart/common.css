@@ -1,0 +1,27 @@
+@import url("../common.css");
+
+table {
+        border-collapse: collapse;
+}
+
+tr.sub>th {
+        writing-mode: sideways-lr;
+}
+
+th,
+td {
+        border: thin solid;
+        padding-inline: 0.25em;
+}
+
+td.tunc {
+        text-align: end;
+        border-inline-end: none;
+        font-size: larger;
+}
+
+td.phon {
+        text-align: start;
+        border-inline-start: none;
+        font-size: smaller;
+}
