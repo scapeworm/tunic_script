@@ -1,0 +1,4 @@
+[submodule "cmudict"]
+	path = cmudict
+	url = git@github.com:cmusphinx/cmudict.git
+	branch = master
