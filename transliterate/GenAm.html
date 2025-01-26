@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>transliterate from/to GenAm orthography</title>
+
+  <link rel="stylesheet" href="GenAm.css">
+</head>
+
+<body>
+
+  <h1>transliterate from/to GenAm orthography · <span lang="en-Zzzz-US" class="tunc">󱲵󱲳󱳧󱳌󱳖󱲲󱳸󱲵󱳽󱲵󱳢̥ 󱲹󱲳󱳣󱳈/󱲵󱳯 󱲪󱳼󱳌󱳈󱳣̥ 󱲷󱳷̥󱳑󱳦̥󱲳󱳣󱲹󱳾</span></h1>
+
+  <p>input initial text to transliterate in the appropriate text area.</p>
+
+  <p>output can be manually fine-tuned after each conversion step for better results.</p>
+
+  <div class="converters">
+
+    <div>
+
+      <h2 class="converter-heading">Latin text</h2>
+
+      <label class="converter-description" for="text-latn">
+        English text in standard Latin orthography
+      </label>
+
+      <textarea id="text-latn" class="converter-input" lang="en-US" wrap="soft" placeholder="All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood."></textarea>
+
+      <button id="text-latn-to-text-phon-candidate" class="converter-next" type="button">
+        <span role="img" aria-hidden="true">↘</span>
+        convert to phonemic text candidate
+      </button>
+
+    </div>
+
+    <div>
+
+      <h2 class="converter-heading">Latin text candidate</h2>
+
+      <button id="text-latn-cadidates-to-text-latn" class="converter-prev" type="button">
+        <span role="img" aria-hidden="true">←</span>
+        convert to Latin text
+      </button>
+
+      <p class="converter-description">
+        candidate for English text in standard Latin orthography
+      </p>
+
+      <div id="text-latn-candidate" class="converter-input candidate" lang="en-US-fonipa"></div>
+
+    </div>
+
+    <div>
+
+      <h2 class="converter-heading">phonemic text</h2>
+
+      <button id="text-phon-to-text-latn-candidate" class="converter-prev" type="button">
+        <span role="img" aria-hidden="true">↗</span>
+        convert to Latin text candidate
+      </button>
+
+      <label class="converter-description" for="text-phon">
+        English text in general phonemic notation (<abbr title="International Phonetic Alphabet">IPA</abbr>)
+      </label>
+
+      <textarea id="text-phon" class="converter-input" lang="en-US-fonipa" wrap="soft" placeholder="ɑl ˈhjuː.mən ˈbiːɪŋz ɑɹ boɹn fɹiː ænd ˈiːkwəl ɪn ˈdɪɡnɪti ænd ɹaɪts. ðeɪ ɑɹ ɪnˈdaʊd wɪθ ˈɹiːzən ænd ˈkɑn.ʃəns ænd ʃʊd ækt tʊˈwɔɹdz wʌn æˈnʌð.ɚ ɪn ə ˈspiɹɪt ʌv ˈbɹʌð.ɚˌhʊd."></textarea>
+
+      <div class="converter-secondary-input">
+
+        <label for="text-phon-schwa">
+          phoneme sequence (<abbr title="International Phonetic Alphabet">IPA</abbr>) to normalize <span lang="en-US-fonipa">/ə/</span> (schwa) to:
+        </label>
+
+        <input id="text-phon-schwa" lang="en-US-fonipa" type="text" value="ʌ" size="10" placeholder="ʌ">
+
+      </div>
+
+      <button id="text-phon-to-text-phon-normalized" class="converter-next" type="button">
+        <span role="img" aria-hidden="true">↓</span>
+        convert to normalized phonemic text
+      </button>
+
+    </div>
+
+    <div>
+
+      <h2 class="converter-heading">phonemic text candidate</h2>
+
+      <button id="text-phon-cadidates-to-text-phon" class="converter-prev" type="button">
+        <span role="img" aria-hidden="true">←</span>
+        convert to phonemic text
+      </button>
+
+      <p class="converter-description">
+        candidate for English text in general phonemic notation (<abbr title="International Phonetic Alphabet">IPA</abbr>)
+      </p>
+
+      <div id="text-phon-candidate" class="converter-input candidate" lang="en-US-fonipa"></div>
+
+    </div>
+
+    <div>
+
+      <h2 class="converter-heading">normalized phonemic text</h2>
+
+      <label class="converter-description" for="text-phon-normalized">
+        English text in phonemic notation (<abbr title="International Phonetic Alphabet">IPA</abbr>) normalized to only phonemes directly encodable in Tunic Script without suprasegmental notation
+      </label>
+
+      <textarea id="text-phon-normalized" class="converter-input" lang="en-US-fonipa" wrap="soft" placeholder="ɑl hjumæn biɪŋz ɑɹ boɹn fɹi ænd ikwʊl ɪn dɪɡnɪti ænd ɹaɪts. ðeɪ ɑɹ ɪndaʊd wɪθ ɹizʌn ænd kɑnʃɪns ænd ʃʊd ækt tʊwɔɹdz wʌn ænʌðɜɹ ɪn ʌ spiɹɪt ʌv bɹʌðɜɹhʊd."></textarea>
+
+      <button id="text-phon-normalized-to-text-tunc" class="converter-next" type="button">
+        <span role="img" aria-hidden="true">→</span>
+        convert to Tunic Script
+      </button>
+
+    </div>
+
+    <div>
+
+      <h2 class="converter-heading">Tunic Script text</h2>
+
+      <button id="text-tunc-to-text-phon-normalized" class="converter-prev" type="button">
+        <span role="img" aria-hidden="true">←</span>
+        convert to normalized phonemic
+      </button>
+
+      <label class="converter-description" for="text-tunc">
+        English text in Tunic Script GenAm orthography
+      </label>
+
+      <textarea id="text-tunc" class="converter-input tunc" lang="en-Zzzz-US" wrap="soft" placeholder="󱲲󱳦̥ 󱳒󱲶󱳯󱳈󱳧󱳌 󱳂󱳾󱳟󱳸̥󱳖 󱳻 󱳂󱳷󱳌 󱲹󱲳󱳾 󱳌󱳧̥󱳊 󱳃󱳾̥󱲥󱳬󱲲 󱳌󱳸̥ 󱳊󱳸󱳑󱳌󱳸󱲵󱳾 󱳌󱳧̥󱳊 󱲳󱳡󱲵󱲻. 󱳚󱳢 󱳻 󱳌󱳸̥󱳊󱳰󱳊 󱲥󱳸󱲷 󱲳󱳾󱳖󱳣󱳌 󱳌󱳧̥󱳊 󱳃󱳦󱳌󱳝󱳸󱳌󱲻 󱳌󱳧̥󱳊 󱳝󱳬󱳊 󱳃󱳧̥󱲵 󱲵󱳬󱲥󱳷󱳊󱳖 󱲥󱳣󱳌 󱳌󱳧̥󱳚󱳣̥󱳽 󱳌󱳸̥ 󱳣 󱲻󱲱󱳾󱲳󱳸󱲵 󱳆󱳣̥ 󱳂󱲳󱳣󱳚󱳽󱳒󱳬󱳊."></textarea>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
